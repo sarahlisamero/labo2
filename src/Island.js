@@ -61,5 +61,12 @@ export default class Island {
           }
         );
     }
+    toJSON() {
+      return {
+        name: this.name,
+        color: this.getRandomColor(),
+        coords: this.getRandomCoords()
+      };
+    }
 }
   
