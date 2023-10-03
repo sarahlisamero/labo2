@@ -9,7 +9,11 @@ export default class Island {
       // JS animations api, fade out
       // remove the element when the animation ended
     }
-  
+    getRandomCoords() {
+        let x = Math.floor(Math.random() * window.innerWidth);
+        let y = Math.floor(Math.random() * window.innerHeight);
+        return { x: x, y: y };
+    }
     getRandomName() {
       // array with 10 random island names
       const names = [
@@ -24,8 +28,25 @@ export default class Island {
         "Palm island",
         "Paradise island"
       ];
-  
-      // return a random name from the array
     }
-  }
+      // return a random name from the array
+    render() {
+        let div = document.createElement("div");
+        div.classList.add("island");
+    
+        document.body.appendChild(div);
+        let coords = this.getRandomCoords();
+        div.animate(
+          [
+            { transform: `translate(0px, 0px)` },
+            { transform: `translate(${coords.x}px, ${coords.y}px)` }
+          ],
+          {
+            duration: 2000,
+            iterations: 1,
+            fill: "forwards"
+          }
+        );
+    }
+}
   
