@@ -1,5 +1,7 @@
 export default class Island {
-    constructor(name) {}
+    constructor(name) {
+        this.name = this.getRandomName();
+    }
   
     getRandomColor() {
       return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
@@ -9,11 +11,13 @@ export default class Island {
       // JS animations api, fade out
       // remove the element when the animation ended
     }
+
     getRandomCoords() {
         let x = Math.floor(Math.random() * window.innerWidth);
         let y = Math.floor(Math.random() * window.innerHeight);
         return { x: x, y: y };
     }
+
     getRandomName() {
       // array with 10 random island names
       const names = [
@@ -28,12 +32,19 @@ export default class Island {
         "Palm island",
         "Paradise island"
       ];
-    }
       // return a random name from the array
+        return names[Math.floor(Math.random() * names.length)];
+    }
+    
     render() {
         let div = document.createElement("div");
         div.classList.add("island");
-    
+        
+        const nameElement = document.createElement("div");
+        nameElement.classList.add("island-name");
+        nameElement.innerHTML = this.name;
+        div.appendChild(nameElement);
+
         document.body.appendChild(div);
         let coords = this.getRandomCoords();
         div.animate(
