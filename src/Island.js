@@ -55,7 +55,7 @@ export default class Island {
             { transform: `translate(${coords.x}px, ${coords.y}px)` }
           ],
           {
-            duration: 2000,
+            duration: 5000,
             iterations: 1,
             fill: "forwards"
           }

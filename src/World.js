@@ -15,6 +15,17 @@ export default class World {
     load() {
       // load islands from localstorage into array
       // loop over the array and addIslands()
+      /*const savedIslands = JSON.parse(localStorage.getItem("islands")) || [];
+      this.islands = savedIslands.map((islandData) => {
+      const island = new Island(islandData.name);
+      island.render(islandData.color, islandData.coords);
+      return island;*/
+      const savedIslands = JSON.parse(localStorage.getItem("islands")) || [];
+      this.islands = savedIslands.map((islandData) => {
+      const island = new Island(islandData.name);
+      island.render(); 
+      return island;
+    });
     }
   
     addIsland(island) {

@@ -16,3 +16,7 @@ document.getElementById("btnSave").addEventListener("click", () => {
   world.save();
   console.log("island saved");
 });
+
+document.getElementById("btnLoad").addEventListener("click", () => {
+  world.load();
+});
