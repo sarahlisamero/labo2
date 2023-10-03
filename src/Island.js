@@ -39,6 +39,8 @@ export default class Island {
     render() {
         let div = document.createElement("div");
         div.classList.add("island");
+
+        div.style.backgroundColor = this.getRandomColor();
         
         const nameElement = document.createElement("div");
         nameElement.classList.add("island-name");
