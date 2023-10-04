@@ -1,35 +1,32 @@
 import Island from "./Island.js";
 export default class World {
     constructor() {
-      this.islands = [];
+      this.circles = [];
     }
   
-    save() {
-      localStorage.setItem("islands", JSON.stringify(this.islands));
+     // Save circles to localStorage
+    saveCirclesToLocalStorage() {
+    localStorage.setItem("circles", JSON.stringify(this.circles));
     }
     
-    hasSavedIslands() {
-      return localStorage.getItem("islands") !== null; // Check if there are islands in localStorage
+    // Check if there are circles in localStorage
+    hasSavedCircles() {
+    return localStorage.getItem("circles") !== null;
     }
   
-    load() {
-      // load islands from localstorage into array
-      // loop over the array and addIslands()
-      /*const savedIslands = JSON.parse(localStorage.getItem("islands")) || [];
-      this.islands = savedIslands.map((islandData) => {
-      const island = new Island(islandData.name);
-      island.render(islandData.color, islandData.coords);
-      return island;*/
-      const savedIslands = JSON.parse(localStorage.getItem("islands")) || [];
-      this.islands = savedIslands.map((islandData) => {
-      const island = new Island(islandData.name);
-      island.render(); 
+    // Load circles from localStorage
+    loadCirclesFromLocalStorage() {
+    const savedCircles = JSON.parse(localStorage.getItem("circles")) || [];
+    this.circles = savedCircles.map((circleData) => {
+      const island = new Island(circleData.name);
+      island.render(circleData.color, circleData.coords);
       return island;
     });
     }
   
-    addIsland(island) {
-      this.islands.push(island); // add the islands to the DOM
+    addCircle(circle) {
+    this.circles.push(circle);
     }
   }
+
   

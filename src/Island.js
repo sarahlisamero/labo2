@@ -1,15 +1,10 @@
 export default class Island {
     constructor(name) {
-        this.name = this.getRandomName();
+        this.name = name || this.getRandomName(); // Allow passing a name, or generate one
     }
   
     getRandomColor() {
       return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-    }
-  
-    remove() {
-      // JS animations api, fade out
-      // remove the element when the animation ended
     }
 
     getRandomCoords() {
@@ -69,4 +64,3 @@ export default class Island {
       };
     }
 }
-  

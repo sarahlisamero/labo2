@@ -8,15 +8,14 @@ const world = new World();
 
 document.getElementById("btnAddIsland").addEventListener("click", () => {
   const island = new Island();
-  world.addIsland(island);
+  world.addCircle(island);
   island.render();
 });
 
 document.getElementById("btnSave").addEventListener("click", () => {
-  world.save();
-  console.log("island saved");
+  world.saveCirclesToLocalStorage();
 });
 
 document.getElementById("btnLoad").addEventListener("click", () => {
-  world.load();
+  world.loadCirclesFromLocalStorage();
 });
