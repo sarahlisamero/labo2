@@ -2,9 +2,25 @@ import Island from "./Island.js";
 export default class World {
     constructor() {
       this.circles = [];
+      this.hookEvent();
     }
-  
-     // Save circles to localStorage
+    
+    hookEvent(){
+      document.getElementById("btnAddIsland").addEventListener("click", () => {
+        const island = new Island();
+        this.addCircle(island);
+        island.render();
+      });
+      
+      document.getElementById("btnSave").addEventListener("click", () => {
+        this.saveCirclesToLocalStorage();
+      });
+      
+      document.getElementById("btnLoad").addEventListener("click", () => {
+        this.loadCirclesFromLocalStorage();
+      });
+    }
+    // Save circles to localStorage
     saveCirclesToLocalStorage() {
     localStorage.setItem("circles", JSON.stringify(this.circles));
     }
