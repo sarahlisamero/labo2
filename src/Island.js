@@ -8,10 +8,16 @@ export default class Island {
     }
 
     getRandomCoords() {
-        let x = Math.floor(Math.random() * window.innerWidth);
+        /*let x = Math.floor(Math.random() * window.innerWidth);
         let y = Math.floor(Math.random() * window.innerHeight);
-        return { x: x, y: y };
+        return { x: x, y: y };*/
+      let randomSign = Math.random() < 0.5 ? -1 : 1;
+      return {
+        x: ((Math.random() * window.innerWidth) / 2) * randomSign,
+        y: ((Math.random() * window.innerHeight) / 2) * randomSign
+      };
     }
+    
 
     getRandomName() {
       // array with 10 random island names
